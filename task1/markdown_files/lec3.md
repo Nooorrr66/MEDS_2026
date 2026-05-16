@@ -1,27 +1,12 @@
 # Lecture 3 – Sequential Logic and FSMs
 
 ## Core Topics
-- Completing combinational logic (recap of Lecture 2)
-- Importance of memory in computers
-- Basic storage elements (latches, flip-flops)
-- Registers and memory arrays
-- Sequential vs. combinational logic
-- Clocks and synchronous systems
-- Finite State Machines (FSMs)
-- Moore vs. Mealy FSMs
-- FSM implementation and state encoding
+explains basic storage elements such as latches and flip-flops, along with how registers and memory arrays are built from them. The discussion then moves to the difference between sequential and combinational logic, highlighting how sequential systems depend on both current inputs and past states. It also covers clocks and synchronous systems, which coordinate when changes in state occur. Finally, it introduces Finite State Machines (FSMs), including the differences between Moore and Mealy models, as well as how FSMs are implemented using state encoding techniques.
 
 ---
 
 ## High-Level Summary
-Combinational logic has no memory.  
-To build real computers, circuits must store past information.
-
-Sequential logic:
-- Combinational logic + storage elements + clock
-
-Finite State Machines (FSMs):
-- Formal model for designing systems with memory (e.g., processors, controllers)
+Combinational logic has no memory, meaning its output depends only on the current inputs. However, to build real computers, circuits must be able to store past information, which leads to the development of sequential logic. Sequential logic combines combinational logic with storage elements and a clock to manage when changes occur. Finite State Machines (FSMs) provide a formal way to design systems with memory, and they are widely used in applications such as processors and controllers.
 
 ---
 
@@ -40,6 +25,9 @@ Finite State Machines (FSMs):
 ### 1. Cross-Coupled Inverters
 - Two stable states: Q = 0 or 1
 - No control input -> not practical alone
+<div align="center">
+<img src="image_5.png" width="100">
+</div>
 
 ---
 
@@ -50,6 +38,9 @@ Finite State Machines (FSMs):
 |--|--|--|
 | 0 | 1 | 1 (Set) |
 | 1 | 0 | 0 (Reset) |
+<div align="center">
+<img src="image_6.png" width="100">
+</div>
 
 - Forbidden: S = 0, R = 0
 - Can cause metastability
@@ -64,6 +55,9 @@ Finite State Machines (FSMs):
 | 0 | X | Q(prev) |
 | 1 | 0 | 0 |
 | 1 | 1 | 1 |
+<div align="center">
+<img src="image_7.png" width="200">
+</div>
 
 - WE = 1 -> transparent
 - WE = 0 ->holds value
@@ -84,8 +78,7 @@ Finite State Machines (FSMs):
 ## Registers and Memory
 
 ### Register
-- Multiple flip-flops with shared clock
-- Stores multiple bits
+Multiple flip-flops that share a common clock are used together to store multiple bits of information at the same time. This arrangement allows data to be stored in parallel, forming the basis of registers and small memory units in digital systems.
 
 ### Memory Array
 - Organized as locations * bits
@@ -121,7 +114,11 @@ Example:
 ---
 
 ## Finite State Machines (FSM)
-
+A Finite State Machine (FSM) is a mathematical and digital design model used to represent systems that have a limited number of states and can change from one state to another based on inputs.
+In simple terms, an FSM is a system that remembers where it is (its current state) and moves between states depending on inputs and a clock signal.
+<div align="center">
+<img src="image_8.png" width="200">
+</div>
 ### Components
 - State Register (flip-flops)
 - Next State Logic
@@ -194,19 +191,3 @@ Rule:
 
 ---
 
-## Required Reading
-- Harris & Harris Chapter 3 (Sequential Logic)
-- Harris & Harris Chapter 4 (Verilog)
-- Patterson & Hennessy Chapter 3.4 onward
-
----
-
-## Self-Check Questions
-- Difference between latch and flip-flop
-- Why combinational logic alone is insufficient
-- Design a 1101 sequence detector (Moore FSM)
-- Flip-flops needed for 7-state FSM (binary vs one-hot)
-- Why S = R = 0 is invalid in R-S latch
-- If clock period = 10 ns:
-  - Frequency = 100 MHz
-  - Time for logic = 10 ns
