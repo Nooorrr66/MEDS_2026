@@ -1,10 +1,9 @@
 # Lecture 1 - Core Subjects
 
 ## Core Topics
-- Course introduction and logistics (teaching, grading, labs, exam)
-- Why study computer architecture
-- What a computer is (computation, communication, storage)
-- Abstraction layers (algorithms to electrons)
+
+- A computer is a mixture of computation, communication, storage
+- Abstraction layers  are algorithms to electrons
 - Transistors as switches (nMOS, pMOS)
 - CMOS logic gates (NOT, NAND, AND, etc.)
 - General CMOS gate structure (pull-up / pull-down networks)
@@ -12,38 +11,14 @@
 
 ---
 
-## High-Level Summary
+## Computer:
 A computer solves problems by orchestrating electrons.  
 We begin from the lowest layer:
-- Transistors -> Logic Gates -> Combinational Logic -> Processors -> Memory
+
+ Transistors -> Logic Gates -> Combinational Logic -> Processors -> Memory
 
 ---
 
-## Course Logistics
-- Professors: Onur Mutlu, Mohammad Sadrosadati
-- Teaching style:
-  - Lectures
-  - Readings
-  - Labs
-  - Homework (optional but recommended)
-  - Exam
-
-### Labs
-- Build a microprocessor on an FPGA (group work)
-
-### Exam
-- 180-minute written exam
-- Past exams available online
-
-### Extra Credit
-- Analyze RowHammer/RowPress talk (1%)
-- Review Moore’s 1965 paper (0.5%)
-
-### Textbooks
-- Harris & Harris – Digital Design and Computer Architecture
-- Patterson & Hennessy – Computer Organization and Design
-
----
 
 ## Transformation Hierarchy (Abstraction Stack)
 
@@ -61,7 +36,7 @@ We begin from the lowest layer:
 
 ---
 
-## What is a Computer?
+
 
 ### Three Core Components (von Neumann Model)
 - Computation (CPU, ALU)
@@ -100,6 +75,9 @@ CMOS = Complementary MOS (nMOS + pMOS)
 ---
 
 ## CMOS Gate Structure
+<div align="center">
+<img src="image_1.png" width="200">
+</div>
 
 - Pull-Up Network (PUN): pMOS -> connects to Vdd (1)
 - Pull-Down Network (PDN): nMOS -> connects to GND (0)
@@ -124,6 +102,9 @@ Only one network is ON at a time.
 ### 4. NOR Gate
 - pMOS in series, nMOS in parallel  
 - Y = ~(A + B)
+<div align="center">
+<img src="image_2.png" width="300">
+</div>
 
 ### Logical Completeness
 - NAND alone is complete  
@@ -158,15 +139,5 @@ Only one network is ON at a time.
 
 ---
 
-## General vs Special Purpose Systems
 
-| Feature | General Purpose (CPU) | Special Purpose (ASIC, TPU) |
-|--------|----------------------|-----------------------------|
-| Flexibility | High | Low |
-| Ease of Programming | High | Low |
-| Performance | Moderate | Very High |
-
-### Examples
-- CPU: Intel Core, Apple Mx
-- Specialized: TPU, Cerebras, Bitcoin miners
 
