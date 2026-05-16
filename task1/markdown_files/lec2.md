@@ -1,7 +1,7 @@
 # Combinational Logic – Lecture Notes
 
-##Core Topic
-Combinational Logic – how to build and simplify digital circuits using transistors, logic gates, Boolean algebra, and standard building blocks.
+## Core Topic
+Sequential logic and combinational logic are two fundamental types of digital logic circuits. In combinational logic, the output depends only on the current inputs, meaning the circuit has no memory and does not store past information. Examples include adders, multiplexers, and logic gates. In contrast, sequential logic depends not only on the current inputs but also on the previous state of the circuit. Because of this, sequential circuits have memory elements that allow them to store information over time. Examples include flip-flops, registers, and counters.
 
 ---
 
@@ -21,14 +21,6 @@ Combinational Logic – how to build and simplify digital circuits using transis
 ### Basic Gates:
 - NOT, AND, OR, NAND, NOR, XOR
 
-### Boolean Laws:
-- Identity
-- Commutative
-- Associative
-- Distributive
-- Complement
-- Involution
-- DeMorgan’s Laws
 
 ### DeMorgan’s Laws:
 - (X + Y)' = X' · Y'
@@ -60,14 +52,7 @@ Combinational Logic – how to build and simplify digital circuits using transis
 ---
 
 ## 5. Logic Minimization
-- Multiple Boolean expressions can represent the same function
-- Trade-offs:
-  - Cost
-  - Speed
-  - Power
-- Methods:
-  - Boolean algebra
-  - Karnaugh Maps (K-maps)
+Logic minimization is the process of simplifying Boolean expressions while still producing the same logical function. A single logic function can often be represented using multiple Boolean expressions, but some forms are more efficient than others. Simplifying logic helps reduce hardware cost, improve circuit speed, and lower power consumption. Common methods used for logic minimization include Boolean algebra and Karnaugh Maps (K-maps), which help identify and eliminate unnecessary terms in a logic expression.
 
 ---
 
@@ -111,8 +96,15 @@ Combinational Logic – how to build and simplify digital circuits using transis
 ## Must-Remember Formulas
 
 ### Full Adder:
+
 - Sum = A ⊕ B ⊕ Cin  
 - Carry_out = AB + ACin + BCin  
+<div align="center">
+<img src="image_3.png" width="300">
+</div>
+<div align="center">
+<img src="image_4.png" width="100">
+</div>
 
 ### DeMorgan’s Laws:
 - (X + Y)' = X' · Y'  
@@ -134,16 +126,9 @@ Combinational Logic – how to build and simplify digital circuits using transis
 
 ---
 
-##  Why CMOS Uses Both nMOS & pMOS
-- nMOS:
-  - Good at passing 0
-  - Weak at passing 1
-- pMOS:
-  - Good at passing 1
-  - Weak at passing 0
-- Complementary design:
-  - Prevents short circuits
-  - Avoids floating outputs
+## Why CMOS Uses Both nMOS & pMOS
+
+CMOS uses both nMOS and pMOS transistors because each transistor type has its own strengths and weaknesses. An nMOS transistor is good at passing a logic 0 but weak at passing a logic 1, while a pMOS transistor is good at passing a logic 1 but weak at passing a logic 0. By combining both in a complementary design, CMOS circuits produce clean and reliable outputs while preventing short circuits and avoiding floating output states.
 
 ---
 
