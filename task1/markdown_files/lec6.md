@@ -3,10 +3,7 @@
 ## Part 1: Combinational Circuit Timing
 
 ### 1.1 The Reality of Delay
-- Digital logic abstraction (output changes instantly) is **not physically true**.
-- Transistors have finite switching time due to:
-  - Capacitance and resistance
-  - Finite speed of light (=30 cm/ns – significant on chip scale)
+The idea that digital logic changes instantly is only an abstraction and is not true in real hardware. In reality, transistors take a finite amount of time to switch states due to physical limitations such as capacitance and resistance in the circuit. Even the speed of light places a limit on how fast signals can travel, which is significant at the chip scale since signals only travel about 30 cm per nanosecond.
 
 ### 1.2 Delay Definitions
 - **Contamination delay (`tcd`)** – minimum time until output *starts* changing.
@@ -22,10 +19,10 @@
 - Example: `tpd = 2*tpd_AND + tpd_OR`, `tcd = tcd_AND`
 
 ### 1.4 Glitches
-- **Glitch:** one input transition causes multiple output transitions.
-- Visible in K-maps when moving between prime implicants.
-- **Fixing:** add consensus terms (increases area/power).
-- **Often ignored** if only steady-state output matters – designer's choice.
+A glitch occurs when a single input transition causes multiple unwanted transitions in the output before the signal settles to its final stable value. This phenomenon is often visible in Karnaugh maps when moving between prime implicants, where timing differences in signal paths lead to temporary inconsistencies. Glitches can be reduced or eliminated by adding consensus terms to the logic expression, although this usually increases circuit area and power consumption. In many cases, glitches are ignored if only the steady-state output is important, leaving it as a design choice depending on the application requirements.
+<div align="center">
+<img src="image_12.png" width="300">
+</div>
 
 ---
 
@@ -36,6 +33,9 @@
 - **`thold`** – D must be stable *after* clock edge.
 - **Aperture time** = `tsetup + thold`
 - **Metastability** – if D changes during aperture time, output can settle unpredictably.
+<div align="center">
+<img src="image_13.png" width="200">
+</div>
 
 ### 2.2 Clock-to-Q Delays
 - **`tccq`** (contamination) – earliest Q changes after clock edge.
@@ -50,14 +50,13 @@
   -> If violated, data changes too fast for next flip-flop.
 
 ### 2.4 Fixing Violations
-- **Setup violation:** reduce logic depth, simplify paths, or lower clock frequency.
-- **Hold violation:** add buffers to short paths (increases `tcd`) – **does not affect max frequency**.
+Timing violations in digital circuits can be fixed depending on their type. For a setup violation, the designer can reduce the logic depth, simplify long combinational paths, or lower the clock frequency so that all signal delays fit within one clock cycle. In contrast, a hold violation is fixed by adding buffers to short paths, which increases the contamination delay (tcd) but does not affect the maximum clock frequency of the system.
 
 ### 2.5 Clock Skew
-- Clock does **not** arrive at all flip-flops simultaneously.
-- **Skew** = time difference between two clock edges.
-- Skew **increases effective `tsetup` and `thold`** -> more sequencing overhead.
-- Managed by careful clock network design (e.g., clock trees, meshes).
+Occurs because the clock signal does not reach all flip-flops at exactly the same time. The skew is defined as the time difference between clock edges arriving at different registers. This effectively increases the required setup and hold times, adding extra timing overhead to the design. To minimize these issues, clock distribution is carefully engineered using structures like clock trees or clock meshes.
+<div align="center">
+<img src="image_14.png" width="200">
+</div>
 
 ---
 
@@ -81,9 +80,10 @@
 ## Part 4: Functional Verification
 
 ### 4.1 Testbench Concept
-- **Testbench** = module that tests a **Device Under Test (DUT)**.
-- Provides inputs, checks outputs.
-- **Not synthesized** – uses simulation-only constructs (`#10`, `$display`).
+Functional verification is done using a testbench, which is a special module designed to test a Device Under Test (DUT). The testbench applies inputs to the DUT and checks whether the outputs behave as expected. Unlike real hardware design, a testbench is not synthesized into physical hardware; instead, it is used only for simulation purposes. It can also use simulation-only constructs such as timing delays like #10 and system tasks like $display to help observe and debug the behavior of the design.
+<div align="center">
+<img src="image_15.png" width="300">
+</div>
 
 ### 4.2 Testbench Types
 
@@ -94,30 +94,11 @@
 | Testvector-based | File | Automatic |
 | Automatic | Generated | Automatic (vs golden model) |
 
-### 4.3 Simple Testbench
-- Hardcoded inputs, wait statements.
-- Output checked by looking at waveforms or `$display`.
-- **Pros:** easy for corner cases.
-- **Cons:** not scalable, manual checking.
+### Types
 
-### 4.4 Self-Checking Testbench
-- Same hardcoded inputs, but with `if (y != expected) $display("error")`.
-- **Pros:** prints errors automatically.
-- **Cons:** still not scalable, testbench itself can have bugs.
+A simple testbench uses hardcoded inputs and timing delays, with outputs checked manually through waveforms or $display. It is easy to write and good for small corner cases, but not scalable. A self-checking testbench adds automatic error checking using conditions like if (y != expected), reducing manual work, though it can still be limited in scalability and may contain bugs.
 
-### 4.5 Testvector-Based Testbench
-- Read inputs + expected outputs from a file (e.g., `$readmemb`).
-- Use a **clock** to sequence through vectors.
-- Check on falling edge, apply on rising edge (convention).
-- **Pros:** easy to change test cases without recompiling testbench.
-- **Cons:** file size limited, still need to generate vectors.
-
-### 4.6 Automatic Testbench with Golden Model
-- **Golden model** = high-level, simpler, verified-correct version of DUT.
-- Test pattern generator feeds same inputs to DUT and golden model.
-- Comparator checks mismatch.
-- **Pros:** fully automated, high coverage, good separation of roles.
-- **Cons:** golden model may be hard to write; input generation still challenging.
+A testvector-based testbench reads inputs and expected outputs from a file using $readmemb and applies them using a clock, making it easier to update test cases without changing code. However, it depends on external files and test vector generation. An automatic testbench with a golden model compares the DUT against a verified reference model using the same inputs, enabling full automation and high coverage, but it requires a correct golden model and good input generation.
 
 ### 4.7 The Verification Wall
 - 32-bit adder: 64 inputs -> 2^64 possible combinations.

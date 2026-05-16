@@ -1,10 +1,6 @@
 # Lectures 5 & 6: Timing, Verification & Verilog (The Simple Version)
 
-## Part 1: Why Timing Matters (The Real World)
-
-- **Digital logic straight up lies sometimes.** Nothing is instant.
-- Gates take time, wires take time… everything has *delay*.
-- So yeah, your circuit can be 100% correct on paper and still fail in real life if you push the clock too fast.
+In real-world digital systems, timing actually matters a lot because digital logic is not instantaneous. Gates take time to respond, wires introduce delays, and every operation has some propagation delay. This means that even if a circuit is logically correct on paper, it can still fail in practice if the clock speed is too high, since signals may not have enough time to settle before the next operation begins.
 
 ## Part 2: The Two Key Delays
 
@@ -49,14 +45,7 @@
 
 ## Part 4: Glitches & Skew (the annoying stuff)
 
-- **Glitches:**
-  - Output randomly flickers before settling
-  - Usually harmless -> ignore unless it causes real issues
-
-- **Clock Skew:**
-  - Clock doesn’t hit all flip-flops at the same time
-  - Makes timing harder to satisfy
-
+Glitches are temporary unwanted changes in a digital circuit’s output, where the signal may flicker or behave unpredictably for a short moment before settling to its correct value. They are usually harmless and often ignored unless they affect system behavior or cause errors in critical designs. Another important issue is clock skew, which occurs when the clock signal does not reach all flip-flops at the same time. This timing difference can make it harder to satisfy timing requirements and can lead to incorrect circuit operation if not properly managed.
 ## Part 5: Verilog (actual usable version)
 
 ### Two ways to write it
@@ -68,7 +57,7 @@
 2. **Behavioral**
    - More like instructions
    - “if this happens, do that”
-   - This is what you’ll mostly use
+   - This is what you’ll mostly us
 
 ---
 
@@ -81,6 +70,9 @@
 - **Non-blocking (`<=`):**
   - everything updates together later
   - use for sequential logic (clocked stuff)
+<div align="center">
+<img src="image_11.png" width="300">
+</div>
 
 **Just remember:**
 - no clock -> `=`
@@ -93,21 +85,9 @@
 
 ---
 
-## Part 6: Testing (don’t skip this)
+## Part 6: Testing 
 
-You can’t “feel” if hardware works. You have to test it.
-
-### Simple Testbench
-- just throw inputs and look at waves  
-- okay for tiny stuff  
-
-### Self-Checking
-- code tells you if something is wrong  
-- way better  
-
-### Golden Model
-- make a simple correct version  
-- compare outputs automatically  
+Testing is a crucial part of digital design because hardware cannot be verified by intuition alone, so it must be properly tested to ensure it works correctly. A simple testbench is often used first, where different input values are applied and the output waveforms are observed, which is usually sufficient for small or basic designs. However, a more advanced approach is self-checking, where the testbench automatically verifies whether the output is correct and reports errors, making it much more reliable. An even stronger method is the golden model approach, where a simplified and trusted version of the design is created, and the actual circuit’s outputs are compared against it automatically to ensure correctness. 
 
 ---
 

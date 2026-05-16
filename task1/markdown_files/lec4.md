@@ -4,39 +4,15 @@
 
 ## Lecture 4a: Sequential Logic Design II - Finite State Machines (FSMs)
 
-### Sequential Circuits & Memory
-- Output depends on:
-  - Current inputs
-  - Past inputs (state)
-- Use memory elements:
-  - Latches
-  - Flip-flops
-
----
-
-### D Flip-Flop
-- Edge-triggered state element
-- Captures input **D** on the **rising edge** of the clock
-- Holds output **Q** for the entire clock cycle
+### Previously
+Sequential circuits are digital systems where the output depends not only on the current inputs but also on past inputs, meaning they rely on a stored state to function. Unlike combinational logic, they include memory elements such as latches and flip-flops to retain information over time. One important example is the D flip-flop, an edge-triggered device that captures the input D at the rising edge of the clock signal. Once captured, it stores this value and keeps the output Q stable for the entire clock cycle until the next clock edge updates it again.
 
 ---
 
 ### Finite State Machine (FSM) Structure
 
-An FSM consists of three main components:
+An FSM (Finite State Machine) consists of three main components that work together to control its behavior. The first is the state register, which stores the current state of the system and is typically implemented using flip-flops. The second is the next state logic, which is combinational logic that determines what the next state will be based on the current state and the inputs. The third component is the output logic, which generates the outputs of the system according to the state (and sometimes the inputs, depending on the FSM type).
 
-1. **State Register**
-   - Stores the current state
-   - Implemented using flip-flops
-
-2. **Next State Logic**
-   - Combinational logic
-   - Determines next state based on:
-     - Current state
-     - Inputs
-
-3. **Output Logic**
-   - Generates outputs
 
 ---
 
@@ -49,19 +25,9 @@ An FSM consists of three main components:
 - Outputs depend on:
   - Current state
   - Inputs
-
----
-
-### FSM Design Steps
-
-1. Determine states
-2. Create a **state transition diagram**
-3. Create a **state transition table**
-4. Create an **output table**
-5. Derive logic equations:
-   - Next state
-   - Outputs
-6. Draw the schematic
+<div align="center">
+<img src="image_9.png" width="300">
+</div>
 
 ---
 
@@ -92,9 +58,7 @@ An FSM consists of three main components:
 ## Lecture 4b: Introduction to FPGAs & Labs
 
 ### What is an FPGA?
-- **Field-Programmable Gate Array**
-- A **reconfigurable hardware device**
-- Can be programmed to implement custom circuits
+A Field-Programmable Gate Array (FPGA) is a reconfigurable hardware device that can be programmed after manufacturing to implement custom digital circuits. Instead of being fixed for a single function like traditional hardware, an FPGA can be configured and reconfigured to perform different tasks based on user requirements.
 
 ---
 
@@ -131,33 +95,20 @@ An FSM consists of three main components:
 
 ## Lecture 4c: Hardware Description Languages (HDL) and Verilog
 
-### Purpose of HDLs
-- Languages like:
-  - Verilog
-  - VHDL
-- Used to:
-  - Describe hardware
-  - Simulate designs
-  - Synthesize circuits
-- Enable management of **billions of transistors**
+Hardware Description Languages (HDLs) such as Verilog and VHDL are used to describe digital hardware systems. They allow engineers to model, simulate, and synthesize electronic circuits before they are physically built. HDLs are essential in modern electronics because they make it possible to design and manage extremely complex systems containing billions of transistors.
 
 ---
 
 ### Verilog Module
-- Basic building block
-- Includes:
-  - Module name
-  - Inputs / outputs
-  - Internal logic
+A Verilog module is the basic building block of hardware design in Verilog. It defines a specific part of a digital system and includes a module name, input and output ports, and the internal logic that describes how the circuit behaves.
+<div align="center">
+<img src="image_10.png" width="400">
+</div>
 
 ---
 
 ### Hierarchical Design
-- Build complex systems using smaller modules
-- Improves:
-  - Readability
-  - Scalability
-  - Debugging
+Hierarchical design is an approach where complex systems are built by combining smaller, simpler modules. This method makes designs easier to understand, improves readability, and allows better scalability. It also simplifies debugging because each module can be tested and verified independently.
 
 ---
 
