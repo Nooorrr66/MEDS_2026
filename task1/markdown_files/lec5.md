@@ -71,7 +71,7 @@ Glitches are temporary unwanted changes in a digital circuit’s output, where t
   - everything updates together later
   - use for sequential logic (clocked stuff)
 <div align="center">
-<img src="image_11.png" width="300">
+<img src="../images/image_11.png" width="300">
 </div>
 
 **Just remember:**

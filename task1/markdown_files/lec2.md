@@ -100,10 +100,10 @@ Logic minimization is the process of simplifying Boolean expressions while still
 - Sum = A ⊕ B ⊕ Cin  
 - Carry_out = AB + ACin + BCin  
 <div align="center">
-<img src="image_3.png" width="300">
+<img src="../images/image_3.png" width="300">
 </div>
 <div align="center">
-<img src="image_4.png" width="100">
+<img src="../images/image_4.png" width="100">
 </div>
 
 ### DeMorgan’s Laws:

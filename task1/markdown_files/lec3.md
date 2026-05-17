@@ -26,7 +26,7 @@ Combinational logic has no memory, meaning its output depends only on the curren
 - Two stable states: Q = 0 or 1
 - No control input -> not practical alone
 <div align="center">
-<img src="image_5.png" width="100">
+<img src="../images/image_5.png" width="100">
 </div>
 
 ---
@@ -39,7 +39,7 @@ Combinational logic has no memory, meaning its output depends only on the curren
 | 0 | 1 | 1 (Set) |
 | 1 | 0 | 0 (Reset) |
 <div align="center">
-<img src="image_6.png" width="100">
+<img src="../images/image_6.png" width="100">
 </div>
 
 - Forbidden: S = 0, R = 0
@@ -56,7 +56,7 @@ Combinational logic has no memory, meaning its output depends only on the curren
 | 1 | 0 | 0 |
 | 1 | 1 | 1 |
 <div align="center">
-<img src="image_7.png" width="200">
+<img src="../images/image_7.png" width="200">
 </div>
 
 - WE = 1 -> transparent
@@ -117,7 +117,7 @@ Example:
 A Finite State Machine (FSM) is a mathematical and digital design model used to represent systems that have a limited number of states and can change from one state to another based on inputs.
 In simple terms, an FSM is a system that remembers where it is (its current state) and moves between states depending on inputs and a clock signal.
 <div align="center">
-<img src="image_8.png" width="200">
+<img src="../images/image_8.png" width="200">
 </div>
 ### Components
 - State Register (flip-flops)

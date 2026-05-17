@@ -76,8 +76,9 @@ CMOS = Complementary MOS (nMOS + pMOS)
 
 ## CMOS Gate Structure
 <div align="center">
-<img src="image_1.png" width="200">
+<img src="../images/image_1.png" width="200">
 </div>
+
 
 - Pull-Up Network (PUN): pMOS -> connects to Vdd (1)
 - Pull-Down Network (PDN): nMOS -> connects to GND (0)
@@ -103,7 +104,7 @@ Only one network is ON at a time.
 - pMOS in series, nMOS in parallel  
 - Y = ~(A + B)
 <div align="center">
-<img src="image_2.png" width="300">
+<img src="../images/image_2.png" width="300">
 </div>
 
 ### Logical Completeness

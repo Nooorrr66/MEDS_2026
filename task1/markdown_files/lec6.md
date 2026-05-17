@@ -21,7 +21,7 @@ The idea that digital logic changes instantly is only an abstraction and is not 
 ### 1.4 Glitches
 A glitch occurs when a single input transition causes multiple unwanted transitions in the output before the signal settles to its final stable value. This phenomenon is often visible in Karnaugh maps when moving between prime implicants, where timing differences in signal paths lead to temporary inconsistencies. Glitches can be reduced or eliminated by adding consensus terms to the logic expression, although this usually increases circuit area and power consumption. In many cases, glitches are ignored if only the steady-state output is important, leaving it as a design choice depending on the application requirements.
 <div align="center">
-<img src="image_12.png" width="300">
+<img src="../images/image_12.png" width="300">
 </div>
 
 ---
@@ -34,7 +34,7 @@ A glitch occurs when a single input transition causes multiple unwanted transiti
 - **Aperture time** = `tsetup + thold`
 - **Metastability** – if D changes during aperture time, output can settle unpredictably.
 <div align="center">
-<img src="image_13.png" width="200">
+<img src="../images/image_13.png" width="200">
 </div>
 
 ### 2.2 Clock-to-Q Delays
@@ -55,7 +55,7 @@ Timing violations in digital circuits can be fixed depending on their type. For 
 ### 2.5 Clock Skew
 Occurs because the clock signal does not reach all flip-flops at exactly the same time. The skew is defined as the time difference between clock edges arriving at different registers. This effectively increases the required setup and hold times, adding extra timing overhead to the design. To minimize these issues, clock distribution is carefully engineered using structures like clock trees or clock meshes.
 <div align="center">
-<img src="image_14.png" width="200">
+<img src="../images/image_14.png" width="200">
 </div>
 
 ---
@@ -82,7 +82,7 @@ Occurs because the clock signal does not reach all flip-flops at exactly the sam
 ### 4.1 Testbench Concept
 Functional verification is done using a testbench, which is a special module designed to test a Device Under Test (DUT). The testbench applies inputs to the DUT and checks whether the outputs behave as expected. Unlike real hardware design, a testbench is not synthesized into physical hardware; instead, it is used only for simulation purposes. It can also use simulation-only constructs such as timing delays like #10 and system tasks like $display to help observe and debug the behavior of the design.
 <div align="center">
-<img src="image_15.png" width="300">
+<img src="../images/image_15.png" width="300">
 </div>
 
 ### 4.2 Testbench Types

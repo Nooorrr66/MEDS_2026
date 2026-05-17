@@ -26,7 +26,7 @@ An FSM (Finite State Machine) consists of three main components that work togeth
   - Current state
   - Inputs
 <div align="center">
-<img src="image_9.png" width="300">
+<img src="../images/image_9.png" width="300">
 </div>
 
 ---
@@ -102,7 +102,7 @@ Hardware Description Languages (HDLs) such as Verilog and VHDL are used to descr
 ### Verilog Module
 A Verilog module is the basic building block of hardware design in Verilog. It defines a specific part of a digital system and includes a module name, input and output ports, and the internal logic that describes how the circuit behaves.
 <div align="center">
-<img src="image_10.png" width="400">
+<img src="../images/image_10.png" width="400">
 </div>
 
 ---
