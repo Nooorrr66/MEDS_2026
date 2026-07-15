@@ -1,0 +1,5 @@
+PASS instruction1
+FAIL instruction2
+PASS instruction3
+SKIP instruction4
+FAIL instruction5
