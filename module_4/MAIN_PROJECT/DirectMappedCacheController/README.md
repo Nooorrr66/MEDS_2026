@@ -263,6 +263,8 @@ The implemented design is as follows:
 <div align="center">
 <img src="docs/BlockDiagram.png" width="450">
 </div>
+---
+
 # Verification
 
 A self-checking SystemVerilog testbench was developed to verify the controller.
