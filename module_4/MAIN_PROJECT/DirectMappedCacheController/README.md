@@ -258,7 +258,11 @@ Since outputs are associated with states rather than input changes, the design i
 This implementation therefore follows a **Write-Allocate** policy.
 
 ---
-
+# Block Diagram
+The implemented design is as follows:
+<div align="center">
+<img src="docs/BlockDiagram.png" width="450">
+</div>
 # Verification
 
 A self-checking SystemVerilog testbench was developed to verify the controller.
